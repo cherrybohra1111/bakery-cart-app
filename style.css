@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family:'Courier New', Courier, monospace;
+    background-color: #7e4d2f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#container{
+    max-width: 800px;
+    width: 100%;
+    padding: 24px;
+    background-color: #f1dca7;
+    border-style: solid;
+    border-color: #b4814f;
+    border-width: 7px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    color: #7e4d2f;
+}
+
+#menu-box{
+    background-color:#b4814f;
+    border-radius: 8px;
+    padding: 15px;
+    color:#f1dca7;
+    border-style: solid;
+    border-color: #7e4d2f;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+#product-list{
+    font-size: x-large;
+    margin-top: 16px;
+}
+
+.product{
+    display : flex;
+    justify-content: space-between;
+    align-items: center; 
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.product-name{
+    flex: 3;
+}
+
+.product-price{
+    flex: 1;
+}
+
+.add-btn{
+    flex: 1;
+    font-size: large;
+    padding: 7px;
+    border: solid #f1dca7;
+    color:#f1dca7;
+    background-color: #7e4d2f;
+    border-radius: 8px;
+
+}
+
+
+#order-box{
+    padding: 15px;
+    border-style: dashed;
+    border-color: #7e4d2f;
+    border-radius: 8px;
+    color : #7e4d2f;
+    margin-bottom: 25px;
+}
+
+
+h1{
+    font-size: 48px;
+    font-weight: bold;
+    color:#7e4d2f;
+    text-align:center;
+    margin-bottom:25px;
+}
+
+h2{
+    font-size: 34px;
+    text-align: center;
+}
+
+.hidden{
+    display: none;
+}
+
+#no-orders{
+    font-size: 28px;
+    font-weight: 600;
+}
+
+#confirm-order{
+    width: 200px;
+    background-color: #7e4d2f;
+    color:#f1dca7;
+    border: solid #b4814f;
+    padding: 10px;
+    font-size: 24px;
+    border-radius: 8px;
+}
+
+#orders{
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+#orders-total.hidden {
+    display: none;
+}
+
+
+#orders-total{
+    display: flex;
+    padding : 15px;
+    font-size: 30px;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bolder;
+    color: brown;
+
+}
+
