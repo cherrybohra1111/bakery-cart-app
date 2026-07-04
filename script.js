@@ -63,7 +63,17 @@ document.addEventListener("DOMContentLoaded", ()=>{
     });
 
     function addToOrders(product){
-        orderList.push(product);
+        const existingItem = orderList.find(item => item.id === product.id);
+
+        if (existingItem){
+            existingItem.qty+=1;
+        }
+        else{
+            orderList.push({
+                ...product,
+                qty : 1
+            });
+        }
         renderOrders();
     }
 
@@ -76,10 +86,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
             ordersTotal.classList.remove("hidden");
 
             orderList.forEach((o)=>{
-                total+=o.price;
+                total+= o.price * o.qty;
                 const orderItem = document.createElement("div");
                 orderItem.innerHTML=`
-                ${o.emoji}${o.name} - ₹${o.price.toFixed(2)}
+                ${o.emoji}${o.name} X ${o.qty}- ₹${(o.price * o.qty).toFixed(2)}
                 `;
 
                 orders.appendChild(orderItem);
