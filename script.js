@@ -88,8 +88,21 @@ document.addEventListener("DOMContentLoaded", ()=>{
             orderList.forEach((o)=>{
                 total+= o.price * o.qty;
                 const orderItem = document.createElement("div");
+                orderItem.classList.add("order-item");
+
                 orderItem.innerHTML=`
-                ${o.emoji}${o.name} X ${o.qty}- ₹${(o.price * o.qty).toFixed(2)}
+                
+                <div class="item-name">${o.emoji}${o.name}</div>
+                <div class="item-unit">₹${o.price}</div>
+
+                <div class="qty-controls">
+                    <button class="minus" data-id="${o.id}">-</button>
+                    <span>${o.qty}</span>
+                    <button class="plus" data-id="${o.id}">+</button>
+                </div>
+
+                <div class="item-total">₹${(o.price * o.qty).toFixed(2)}</div>
+                <button class="remove" data-id="${o.id}">x</button>
                 `;
 
                 orders.appendChild(orderItem);
@@ -103,6 +116,48 @@ document.addEventListener("DOMContentLoaded", ()=>{
             totalCost.textContent=`₹0.00`;
         }
     }
+
+    orders.addEventListener("click", (e) => {
+        const id = parseInt(e.target.getAttribute("data-id"));
+        if (!id) return;
+
+        if (e.target.classList.contains("plus")) {
+            updateCart("plus", id);
+        }
+
+        if (e.target.classList.contains("minus")) {
+            updateCart("minus", id);
+        }
+
+        if (e.target.classList.contains("remove")) {
+            updateCart("remove", id);
+        }
+    });
+
+    function updateCart(action, id) {
+        const item = orderList.find(i => i.id === id);
+        if (!item) return;
+
+        if (action === "plus") {
+            item.qty++;
+        }
+
+        if (action === "minus") {
+            item.qty--;
+
+            if (item.qty <= 0) {
+                const index = orderList.findIndex(i => i.id === id);
+                orderList.splice(index, 1);
+            }
+        }
+
+        if (action === "remove") {
+            const index = orderList.findIndex(i => i.id === id);
+            orderList.splice(index, 1);
+        }
+
+        renderOrders();
+}
     
     confirmBtn.addEventListener("click", ()=>{
         orderList.length=0;
