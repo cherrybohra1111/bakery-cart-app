@@ -66,8 +66,16 @@ body{
     color:#f1dca7;
     background-color: #7e4d2f;
     border-radius: 8px;
-
+    cursor: pointer;
+    transition: 0.2s ease;
 }
+
+.add-btn:hover {
+    transform: scale(1.04);
+    background-color: #5a3420;
+}
+
+
 
 
 #order-box{
@@ -110,6 +118,12 @@ h2{
     padding: 10px;
     font-size: 24px;
     border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+#confirm-order:hover{
+    transform: scale(1.04);
+    background-color: #5a3420;
 }
 
 #orders{
@@ -135,7 +149,7 @@ h2{
 }
 .order-item {
     display: grid;
-    grid-template-columns: 2.2fr 0.8fr 1.6fr 1.4fr 0.4fr;
+    grid-template-columns: 2.2fr 0.8fr 1.6fr 1fr 0.4fr;
     align-items: center;
     gap: 12px;
     padding: 12px 10px;
@@ -157,11 +171,7 @@ h2{
     font-size: 16px;
 }
 
-.item-unit {
-    text-align: center;
-    color: #7e4d2f;
-    opacity: 0.8;
-}
+
 
 .item-unit {
     font-size: large;
@@ -175,16 +185,25 @@ h2{
     white-space: nowrap;
 }
 
+.qty-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; 
+}
+
 .qty-controls button {
-    width: 26px;
-    height: 26px;
+    width: 30px;
+    height: 30px;
     border-radius: 6px;
     border: none;
     cursor: pointer;
     font-weight: bold;
+    font-size: large;
     background-color: #7e4d2f;
     color: #f1dca7;
     transition: 0.2s ease;
+
 }
 
 .qty-controls button:hover {
@@ -193,9 +212,12 @@ h2{
 
 .qty-controls span {
     font-size: large;
-    min-width: 18px;
+    min-width: 24px;
     text-align: center;
     font-weight: bold;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .item-total {
